@@ -1,0 +1,30 @@
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<a asp-controller="Home" asp-action="Index">Home</a>
+<h1>Unorganized List</h1>
+<p>@ViewBag.Customer01.FirstName @ViewBag.Customer01.LastName</p>
+<p>@ViewBag.Customer01.Address</p>
+<p>@ViewBag.Customer01.Zip</p><p>@ViewBag.Customer01.City</p>
+
+<p>@ViewBag.Customer02.FirstName</p><p>@ViewBag.Customer02.LastName</p>
+<p>@ViewBag.Customer02.Address</p>
+<p>@ViewBag.Customer02.Zip</p><p>@ViewBag.Customer02.City</p>
+
+<h1>Organized List</h1>
+
+@foreach (var customer in @ViewBag.CustomerList)
+{
+    <h2>@customer.FirstName @customer.LastName</h2>
+    <p>@customer.Phone</p>
+    <p>@customer.Address</p>
+    <p>@customer.Zip @customer.City</p>
+}
+<h1>Phone Numbers List</h1>
+
+@foreach (var customer in ViewBag.CustomerList)
+{
+<p> @($"{customer.FirstName} {customer.LastName}'s phone number is {customer.Phone}")</p>
+}
