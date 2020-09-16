@@ -13,8 +13,8 @@ namespace MbmStore.Models
         public string Address { get; set; }
         public string Zip { get; set; }
         public string City { get; set; }
-        public List<string> PhoneNumbers { get; } = new List<string>();
-       
+        public List<string> PhoneNumbers { get; set; } = new List<string>();
+
         // Constructors
         public Customer(string firstName, string lastName, string address, string zip, string city, string phone)
         {
@@ -23,7 +23,20 @@ namespace MbmStore.Models
             Address = address;
             Zip = zip;
             City = city;
-            Phone = phone;
+            PhoneNumbers.Add(phone);
         }
+    
+        public void AddPhone(string phone)
+        {
+           this.PhoneNumbers.Add(phone);
+        }
+
+
+
+
+
+
     }
+
 }
+

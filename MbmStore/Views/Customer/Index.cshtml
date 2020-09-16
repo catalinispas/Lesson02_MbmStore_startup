@@ -14,17 +14,13 @@
 <p>@ViewBag.Customer02.Zip</p><p>@ViewBag.Customer02.City</p>
 
 <h1>Organized List</h1>
-
+cevs =
 @foreach (var customer in @ViewBag.CustomerList)
 {
     <h2>@customer.FirstName @customer.LastName</h2>
-    <p>@customer.Phone</p>
     <p>@customer.Address</p>
     <p>@customer.Zip @customer.City</p>
+    @string.Join(", ", customer.PhoneNumbers)
+    <h2>@string.Join(", ", customer.PhoneNumbers)</h2>
 }
 <h1>Phone Numbers List</h1>
-
-@foreach (var customer in ViewBag.CustomerList)
-{
-<p> @($"{customer.FirstName} {customer.LastName}'s phone number is {customer.Phone}")</p>
-}

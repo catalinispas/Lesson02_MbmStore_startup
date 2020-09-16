@@ -24,6 +24,9 @@ namespace MbmStore.Controllers
             ViewBag.Customer01 = customer01;
             ViewBag.Customer02 = customer02;
 
+            customer02.AddPhone("+052424242424242");
+
+
             return View();
         }
     }
