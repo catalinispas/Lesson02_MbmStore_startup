@@ -9,6 +9,9 @@ namespace MbmStore.Models
     {
         // Fields
 
+        private decimal totalPrice;
+
+
         // Properties
 
         public int OrderItemId { get; set; }
