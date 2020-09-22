@@ -1,0 +1,54 @@
+﻿@using MbmStore.Infrastructure;
+@using MbmStore.Models;
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@{
+    ViewData["Title"] = "Catalogue";
+}
+
+<a asp-controller="Home" asp-action="Index">Home</a>
+
+<h1>Catalogue</h1>
+<h2>Books</h2>
+<table>
+    @foreach (Book book in ViewBag.Books)
+    {
+        <tr>
+            <td>
+                <label style="background-color: #eaeaea">Title:</label>
+                @book.Title
+                <br />
+                <label>Author:</label>
+                @book.Author
+                <br />
+                <label>Price:</label>
+                @book.Price
+                <br />
+                <label>Publisher:</label>
+                @book.Publisher @book.Published
+                <br />
+                <label>ISBN:</label>
+                @book.ISBN
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>Music CDs</h2>
+@foreach (MusicCD musicCD in ViewBag.MusicCDs)
+{
+    <h2>@musicCD.Title</h2>
+    @foreach (Track track in musicCD.Tracks)
+    {
+        <p>@track.Title</p>
+        <p>@track.Length</p>
+    }
+}
+
+<h2>Movies</h2>
+@foreach (Movie movie in ViewBag.Movies)
+{
+    <label style="background-color: #eaeaea">Title:</label>
+    @movie.Title
+    <img src="@movie.ImageUrl" />
+    <br />
+}

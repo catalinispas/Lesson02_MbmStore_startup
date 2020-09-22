@@ -1,0 +1,27 @@
+﻿@using MbmStore.Infrastructure;
+@using MbmStore.Models;
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Invoices";
+
+}
+<h1>Invoices</h1>
+
+@foreach (Invoice invoice in ViewBag.Invoices)
+{
+    <h2>Invoice number @invoice.InvoiceId</h2>
+    <p>Customer: @invoice.Customer</p>
+    <p>Items list:</p>
+    @foreach ( var item in invoice.OrderItems )
+    {
+        <p>Product title: @item.Product.Title Product quantity: @item.Quantity</p>
+        <p>Product price: @item.Product.Price</p>
+        <p>Total price: @item.TotalPrice</p>
+    }
+
+    <p style="background-color: #f1f1f1">Invoice price is: @invoice.TotalPrice</p>
+
+}
